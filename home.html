@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pegasus Power Construction</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    padding-top: 80px;
+}
+
+/* CONTAINER */
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.9);
+    padding: 10px 0;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+header.scrolled {
+    padding: 2px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+}
+
+.logo-box img {
+    width: 60px;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+header.scrolled .logo-box img {
+    width: 45px;
+}
+
+.logo-text {
+    color: #e50914;
+    font-weight: bold;
+}
+
+/* NAV */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #e50914;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    position: relative;
+    background: url('images/hero.jpg') center/cover no-repeat; /* 🔥 YOUR PNG */
+    display: flex;
+    align-items: center;
+}
+
+/* GREY OVERLAY */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(50, 50, 50, 0.5); /*adjust opacity here */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: #e50914;
+    padding: 12px 25px;
+    text-decoration: none;
+    color: white;
+}
+
+/* SECTIONS */
+section {
+    padding: 140px 0;
+    min-height: 80vh;
+    position: relative;
+}
+
+/* DIVIDER */
+section::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #e50914;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ABOUT */
+.about-home {
+    background: #f5f5f5;
+    padding: 120px 0;
+    color: #222;
+}
+
+.about-home-content {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.about-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 25px;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+}
+
+.about-btn:hover {
+    background: #b20710;
+}
+
+.about-highlight {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 4px solid #e50914;
+}
+
+.about-highlight p {
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+/* SERVICES */
+.services-home {
+    background: #0a0a0a;
+    padding: 120px 0;
+    text-align: center;
+    color: white;
+}
+
+.services-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* GRID */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* CARD */
+.service-card {
+    background: #1a1a1a;
+    padding: 25px;
+    border-left: 4px solid #e50914;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.service-card p {
+    color: #ccc;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+
+
+/* BUTTON */
+.services-btn-container {
+    margin-top: 40px;
+}
+
+.services-btn {
+    padding: 12px 25px;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+}
+
+.services-btn:hover {
+    background: #b20710;
+}
+
+/* WHY CHOOSE US */
+.why-home {
+    background: #f5f5f5;
+    padding: 120px 0;
+    color: #222;
+}
+
+.why-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* IMAGE */
+.why-image img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: 0.4s;
+}
+
+.why-image img:hover {
+    transform: scale(1.03);
+}
+
+/* TEXT */
+.why-text {
+    flex: 1;
+}
+
+.why-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.why-text p {
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* BULLETS */
+.why-list {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.why-list li {
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+/* BUTTON */
+.why-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.why-btn:hover {
+    background: #b20710;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    padding: 50px 0;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.footer-box h3 {
+    color: #e50914;
+    margin-bottom: 10px;
+}
+
+.footer-box p {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    color: #777;
+}
+
+/* TEXT SPACING */
+h2 {
+    margin-bottom: 25px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* ANIMATIONS */
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+</head>
+<body>
+
+<header id="header">
+    <div class="container">
+        <div class="logo-box">
+            <img src="images/logo.png">
+            <h1 class="logo-text">PEGASUS</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-content fade">
+        <h1>Powering Modern Infrastructure</h1>
+        <p>Delivering advanced electrical and MEP solutions.</p>
+        <a href="services.html" class="btn">Explore Services</a>
+    </div>
+</section>
+
+<!-- ABOUT  -->
+<section class="about-home">
+    <div class="container about-home-content fade">
+
+        <div class="about-image fade">
+            <img src="images/PegasusImage.jpeg">
+        </div>
+
+        <div class="about-text fade">
+            <h2>About Pegasus Power Construction</h2>
+
+            <p>
+                Pegasus Power Construction is a leading electromechanical company
+                specializing in distribution networks, low-voltage systems, and
+                MEP solutions across Qatar.
+            </p>
+
+            <p>
+                With a strong focus on innovation, reliability, and safety, we deliver
+                advanced infrastructure solutions that power modern developments.
+            </p>
+
+            <!-- ✅ CHECKLIST BACK -->
+            <div class="about-highlight fade">
+                <p>✔ Kahramaa Approved Contractor</p>
+                <p>✔ Experienced Engineering Team</p>
+                <p>✔ High Safety Standards</p>
+                <p>✔ Reliable & Efficient Solutions</p>
+            </div>
+
+            <a href="about.html" class="about-btn">Read More →</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SERVICES (DARK) -->
+<section class="services-home">
+    <div class="container fade">
+
+        <h2 class="services-title">Our Core Services</h2>
+
+        <div class="services-grid">
+
+            <div class="service-card fade">
+                <h3>Distribution Network Construction</h3>
+                <p>Substations, transformers, switchgear, and distribution lines ensuring seamless power delivery.</p>
+            </div>
+
+            <div class="service-card fade">
+                <h3>Low Voltage Network Installation</h3>
+                <p>Complete LV systems including wiring, cabling, and panels for all sectors.</p>
+            </div>
+
+            <div class="service-card fade">
+                <h3>Network Upgrades & Expansion</h3>
+                <p>Enhancing capacity, efficiency, and reliability of existing networks.</p>
+            </div>
+
+            <div class="service-card fade">
+                <h3>Smart Grid Solutions</h3>
+                <p>Advanced monitoring, metering, and automation for optimized performance.</p>
+            </div>
+
+            <div class="service-card fade">
+                <h3>Maintenance & Rehabilitation</h3>
+                <p>Inspection, thermal imaging, repairs, and asset lifecycle management.</p>
+            </div>
+
+            <div class="service-card fade">
+                <h3>MEP Services</h3>
+                <p>Full Mechanical, Electrical, Plumbing & Drainage solutions.</p>
+            </div>
+
+        </div>
+
+        <div class="services-btn-container fade">
+            <a href="services.html" class="services-btn">View All Services →</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHY CHOOSE US (UPGRADED) -->
+<section class="why-home">
+    <div class="container why-content">
+
+        <!-- IMAGE -->
+        <div class="why-image fade">
+            <img src="images/WhyImage.jpeg"> <!-- 🔥 replace -->
+        </div>
+
+        <!-- TEXT -->
+        <div class="why-text fade">
+            <h2>Why Choose Us</h2>
+
+            <p>
+                At Pegasus Power Construction, we combine technical expertise,
+                innovation, and reliability to deliver high-quality infrastructure
+                solutions across Qatar.
+            </p>
+
+            <!-- BULLET LIST -->
+            <ul class="why-list">
+                <li>✔ Kahramaa Approved Electrical Contractor</li>
+                <li>✔ Experienced & Qualified Engineering Team</li>
+                <li>✔ Strong Commitment to Safety Standards</li>
+                <li>✔ Advanced Technology & Smart Grid Solutions</li>
+                <li>✔ Reliable & On-Time Project Delivery</li>
+                <li>✔ End-to-End Engineering Solutions</li>
+            </ul>
+
+            <a href="contact.html" class="why-btn">Get in Touch →</a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-container">
+        <div class="footer-box">
+            <h3>About</h3>
+            <p>Pegasus Power Construction is a KAHRAMAA A-Grade certified leader in Qatar specializing in MEP and electrical distribution networks. They provide expert infrastructure design, installation, and maintenance for major utility and industrial clients.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Phone: +974 6608 9450</p>
+            <p>Email: info@pegasuspower.qa</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Location</h3>
+            <p>Ain Khaled Bldg#32; 2st Floor; Office# 38, Doha, Qatar</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Pegasus Power Construction
+    </div>
+</footer>
+
+<script>
+const elements = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+    const trigger = window.innerHeight * 0.85;
+
+    elements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < trigger) {
+            el.classList.add('show');
+        }
+    });
+});
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+</script>
+
+</body>
+</html>
