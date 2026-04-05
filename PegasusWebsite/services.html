@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - Pegasus Power Construction</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    padding-top: 80px;
+}
+
+/* CONTAINER */
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.9);
+    padding: 10px 0;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+header.scrolled {
+    padding: 2px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+}
+
+.logo-box img {
+    width: 60px;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+header.scrolled .logo-box img {
+    width: 45px;
+}
+
+.logo-text {
+    color: #e50914;
+    font-weight: bold;
+}
+
+/* NAV */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #e50914;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.page-hero {
+    height: 40vh;
+    background: url('images/Sections.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+}
+
+.page-hero h1 {
+    position: relative;
+    font-size: 36px;
+}
+
+/* SECTIONS */
+section {
+    padding: 120px 0;
+}
+
+/* INTRO SECTION (LIGHT) */
+.services-intro {
+    background: #f5f5f5;
+    color: #222;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.intro-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.section-tag {
+    color: #e50914;
+    font-weight: bold;
+}
+
+.intro-text h2 {
+    font-size: 34px;
+    margin: 15px 0;
+}
+
+.intro-text p {
+    color: #444;
+    line-height: 1.6;
+}
+
+/* DARK SERVICES GRID */
+.services-dark {
+    background: #0a0a0a;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 32px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* CARD */
+.service-card {
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.service-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.service-card p {
+    padding: 15px;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* CTA BUTTON UNDER SERVICES */
+.services-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    background: #b20710;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+.footer-container {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.footer-box h3 {
+    color: #e50914;
+}
+
+.footer-box p {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
+
+/* ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+    <div class="container">
+        <div class="logo-box">
+            <img src="images/logo.png">
+            <h1 class="logo-text">PEGASUS</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+    <h1>Our Services</h1>
+</section>
+
+<!-- INTRO -->
+<section class="services-intro">
+    <div class="container intro-grid fade">
+
+        <div class="intro-image">
+            <img src="images/services1.jpg">
+        </div>
+
+        <div class="intro-text">
+            <span class="section-tag">OUR SERVICES</span>
+            <h2>Comprehensive Engineering Solutions</h2>
+            <p>
+                Pegasus Power Construction provides specialized electrical and
+                infrastructure services across Qatar, ensuring high standards
+                of safety, efficiency, and reliability.
+            </p>
+            <p>
+                From cable installations to substation maintenance, our team
+                delivers end-to-end solutions tailored to complex project demands.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="services-dark">
+    <div class="container">
+        <h2 class="section-title">Services</h2>
+
+        <div class="services-grid fade">
+
+            <div class="service-card">
+                <img src="images/HV.png">
+                <p>HV, MV, LV & ELV Cable Laying Works</p>
+            </div>
+
+            <div class="service-card">
+                <img src="images/MV&LV.png">
+                <p>MV & LV Jointing, Termination & T&C</p>
+            </div>
+
+            <div class="service-card">
+                <img src="images/11kvindoor.png">
+                <p>11KV Substation Installation & Commissioning</p>
+            </div>
+
+            <div class="service-card">
+                <img src="images/CableFaultLocating.jpeg">
+                <p>Cable Fault Detection & Repair</p>
+            </div>
+
+            <div class="service-card">
+                <img src="images/fibreopticlaying.png">
+                <p>Fiber Optic Cable Laying, Splicing & Termination</p>
+            </div>
+
+            <div class="service-card">
+                <img src="images/prevention.png">
+                <p>Preventive Maintenance for 11KV Substations</p>
+            </div>
+
+            <div class="service-card">
+                <img src="images/TransformerInstallation.jpeg">
+                <p>Transformer Installation</p>
+            </div>
+
+            <div class="service-card">
+                <img src="images/packagess.jpg">
+                <p>Package Substation Installation</p>
+            </div>
+
+            <div class="service-card">
+                <img src="images/cablejoint.jpeg">
+                <p>Cable Jointing Works</p>
+            </div>
+        </div>
+        <div class="services-cta">
+            <a href="contact.html" class="cta-btn">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-container">
+        <div class="footer-box">
+            <h3>About</h3>
+            <p>Pegasus Power Construction is a KAHRAMAA A-Grade certified leader in Qatar specializing in MEP and electrical distribution networks.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Phone: +974 6608 9450</p>
+            <p>Email: info@pegasuspower.qa</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Location</h3>
+            <p>Doha, Qatar</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Pegasus Power Construction
+    </div>
+</footer>
+
+<script>
+const elements = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+    const trigger = window.innerHeight * 0.85;
+
+    elements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < trigger) {
+            el.classList.add('show');
+        }
+    });
+});
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+</script>
+
+</body>
+</html>
