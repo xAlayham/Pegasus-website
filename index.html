@@ -31,7 +31,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 10px 0;
     z-index: 1000;
     transition: 0.3s;
@@ -55,6 +55,7 @@ header .container {
 .logo-box img {
     width: 60px;
     margin-right: 10px;
+    margin-bottom: 15px;
     transition: 0.3s;
 }
 
@@ -79,8 +80,9 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
     position: relative;
+    font-weight: bold;
 }
 
 nav ul li a::after {
@@ -98,11 +100,19 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
 /* HERO */
 .hero {
     height: 100vh;
     position: relative;
-    background: url('images/hero.jpg') center/cover no-repeat; /* 🔥 YOUR PNG */
+    background: url('images/hero.jpg') center/cover no-repeat; 
     display: flex;
     align-items: center;
 }
@@ -116,7 +126,7 @@ nav ul li a:hover::after {
     width: 100%;
     height: 100%;
 
-    background: rgba(50, 50, 50, 0.5); /*adjust opacity here */
+    background: rgba(50, 50, 50, 0.5); 
 }
 
 .hero-content {
@@ -175,11 +185,22 @@ section::after {
     margin-bottom: 100px;
 }
 
-.about-image img {
+.about-image {
+    flex: 1;
+}
+
+.image-wrapper {
     width: 100%;
-    max-width: 550px;
+    height: 350px; 
     border-radius: 15px;
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
 }
 
 .about-text {
@@ -237,7 +258,7 @@ section::after {
 /* GRID */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); 
     gap: 25px;
 }
 
@@ -396,6 +417,89 @@ p {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ─── MOBILE ─────────────────────────────────── */
+@media (max-width: 768px) {
+
+    /* NAV - hamburger */
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: #000;
+        display: block;
+        transition: 0.3s;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    nav.open {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    /* HERO */
+    .hero-content {
+        width: 90%;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    body {
+        padding-top: 60px;
+    }
+
+    /* ABOUT */
+    .about-home-content {
+        flex-direction: column;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* WHY */
+    .why-content {
+        flex-direction: column;
+    }
+
+    .why-image img {
+        max-width: 100%;
+    }
+
+    /* FOOTER */
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
 </head>
@@ -407,6 +511,12 @@ p {
             <img src="images/logo.png">
             <h1 class="logo-text">PEGASUS</h1>
         </div>
+
+        <button class="nav-toggle" onclick="this.classList.toggle('active'); document.querySelector('nav').classList.toggle('open')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
         <nav>
             <ul>
@@ -432,26 +542,26 @@ p {
     <div class="container about-home-content fade">
 
         <div class="about-image fade">
-            <img src="images/PegasusImage.jpeg">
+            <div class="image-wrapper">
+                <img src="images/home1.jpeg">
+            </div>
         </div>
 
         <div class="about-text fade">
-            <h2>About Pegasus Power Construction</h2>
+            <h2>About PEGASUS Power Construction</h2>
 
             <p>
-                Pegasus Power Construction is a leading electromechanical company
-                specializing in distribution networks, low-voltage systems, and
-                MEP solutions across Qatar.
+                PEGASUS Power Construction is one of Qatar's leading Electromechanical (MV/LV/MEP) & Facility service providers. As approved KAHRAMAA Electrical Distribution Contractor. We have served the local market since 2021.
+                With a strong focus on innovation, reliability, and safety, we deliver advanced infrastructure solutions that power modern developments.
             </p>
 
             <p>
-                With a strong focus on innovation, reliability, and safety, we deliver
-                advanced infrastructure solutions that power modern developments.
+                PEGASUS Power Construction caters to a diverse range of clients, including Utility companies, municipalities, Qatar Energy, Real estate developers, and industrial facilities. Their services address the evolving needs of urban and rural communities, supporting economic growth and quality of life.
             </p>
 
             <!-- ✅ CHECKLIST BACK -->
             <div class="about-highlight fade">
-                <p>✔ Kahramaa Approved Contractor</p>
+                <p>✔ Kahramaa Approved Contractor (11KV works; Grade A).</p>
                 <p>✔ Experienced Engineering Team</p>
                 <p>✔ High Safety Standards</p>
                 <p>✔ Reliable & Efficient Solutions</p>
