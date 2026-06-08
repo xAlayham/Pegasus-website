@@ -31,7 +31,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 10px 0;
     z-index: 1000;
     transition: 0.3s;
@@ -79,8 +79,9 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
     position: relative;
+    font-weight: bold
 }
 
 nav ul li a::after {
@@ -114,13 +115,13 @@ nav ul li a:hover::after {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6); /* 🔥 adjust opacity here */
+    background: rgba(0,0,0,0.6); 
 }
 
 .page-hero h1 {
     position: relative;
     font-size: 36px;
-    z-index: 2; /* 🔥 ensures text is above overlay */
+    z-index: 2; 
 }
 
 .page-hero::before {
@@ -211,6 +212,77 @@ footer {
     margin-top: 20px;
     color: #777;
 }
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 60px;
+    }
+
+    /* NAV */
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: #000;
+        display: block;
+        transition: 0.3s;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    nav.open {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    /* CONTACT LAYOUT */
+    .contact-wrapper {
+        flex-direction: column;
+    }
+
+    .map iframe {
+        min-height: 300px;
+    }
+
+    /* FOOTER */
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
 </head>
@@ -224,9 +296,15 @@ footer {
             <h1 class="logo-text">PEGASUS</h1>
         </div>
 
+        <button class="nav-toggle" onclick="this.classList.toggle('active'); document.querySelector('nav').classList.toggle('open')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
