@@ -5,109 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pegasus Power Construction</title>
 <link rel="icon" type="image/png" href="images/logo.png">
+<link rel="stylesheet" href="style.css">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-    background: #0a0a0a;
-    color: #fff;
-    padding-top: 80px;
-}
-
-/* CONTAINER */
-.container {
-    width: 85%;
-    margin: auto;
-}
-
-/* HEADER */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 10px 0;
-    z-index: 1000;
-    transition: 0.3s;
-}
-
-header.scrolled {
-    padding: 2px 0;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-box {
-    display: flex;
-    align-items: center;
-}
-
-.logo-box img {
-    width: 60px;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    transition: 0.3s;
-}
-
-header.scrolled .logo-box img {
-    width: 45px;
-}
-
-.logo-text {
-    color: #e50914;
-    font-weight: bold;
-}
-
-/* NAV */
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 25px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    position: relative;
-    font-weight: bold;
-}
-
-nav ul li a::after {
-    content: "";
-    width: 0%;
-    height: 2px;
-    background: #e50914;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    transition: 0.3s;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
-}
-
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-}
-
 /* HERO */
 .hero {
     height: 100vh;
@@ -369,34 +269,6 @@ section::after {
     background: #b20710;
 }
 
-/* FOOTER */
-footer {
-    background: #000;
-    padding: 50px 0;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.footer-box h3 {
-    color: #e50914;
-    margin-bottom: 10px;
-}
-
-.footer-box p {
-    color: #ccc;
-    font-size: 14px;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 30px;
-    color: #777;
-}
-
 /* TEXT SPACING */
 h2 {
     margin-bottom: 25px;
@@ -406,62 +278,8 @@ p {
     margin-bottom: 15px;
 }
 
-/* ANIMATIONS */
-.fade {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ─── MOBILE ─────────────────────────────────── */
+/* ─── MOBILE (page-specific only) ───────────── */
 @media (max-width: 768px) {
-
-    /* NAV - hamburger */
-    .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        z-index: 1100;
-    }
-
-    .nav-toggle span {
-        width: 25px;
-        height: 3px;
-        background: #000;
-        display: block;
-        transition: 0.3s;
-    }
-
-    nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        padding: 20px 0;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    nav.open {
-        display: block;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    nav ul li {
-        margin: 0;
-    }
 
     /* HERO */
     .hero-content {
@@ -470,10 +288,6 @@ p {
 
     .hero h1 {
         font-size: 28px;
-    }
-
-    body {
-        padding-top: 60px;
     }
 
     /* ABOUT */
@@ -494,17 +308,13 @@ p {
     .why-image img {
         max-width: 100%;
     }
-
-    /* FOOTER */
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
 }
 </style>
 
 </head>
 <body>
 
+<div class="top-bar"></div>
 <header id="header">
     <div class="container">
         <div class="logo-box">
@@ -520,7 +330,7 @@ p {
 
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -680,30 +490,7 @@ p {
     </div>
 </footer>
 
-<script>
-const elements = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', () => {
-    const trigger = window.innerHeight * 0.85;
-
-    elements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < trigger) {
-            el.classList.add('show');
-        }
-    });
-});
-
-const header = document.getElementById("header");
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
