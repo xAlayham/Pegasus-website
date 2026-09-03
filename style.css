@@ -2,24 +2,45 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo-text, nav ul li a, .section-tag {
+    letter-spacing: 0.3px;
 }
 
 body {
     background: #0a0a0a;
     color: #fff;
-    padding-top: 80px;
+    padding-top: 106px;
 }
 
-/* TOP ACCENT BAR */
+/* TOP INFO BAR */
 .top-bar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: #e50914;
+    height: 26px;
+    background: #b20710;
+    color: #fff;
     z-index: 1001;
+    display: flex;
+    align-items: center;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }
 
 /* CONTAINER */
@@ -28,11 +49,46 @@ body {
     margin: auto;
 }
 
+/* HERO */
+.page-hero {
+    height: 40vh;
+    background: url('images/Sections3.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 3px solid #e50914;
+}
+
+.page-hero .container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.hero-text-box {
+    background: rgba(0,0,0,0.75);
+    padding: 25px 35px;
+    max-width: 480px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text-box h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.hero-text-box p {
+    font-size: 15px;
+    color: #eee;
+    margin: 0;
+}
+
 /* HEADER */
 header {
     position: fixed;
     width: 100%;
-    top: 4px;
+    top: 26px;
     background: rgba(255, 255, 255, 0.9);
     padding: 10px 0;
     z-index: 1000;
@@ -161,7 +217,19 @@ footer {
 @media (max-width: 768px) {
 
     body {
-        padding-top: 60px;
+        padding-top: 82px;
+    }
+
+    .top-bar {
+        height: 22px;
+    }
+
+    .top-bar .container {
+        font-size: 10px;
+    }
+
+    header {
+        top: 22px;
     }
 
     .nav-toggle {

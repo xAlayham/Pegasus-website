@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects - Pegasus Power Construction</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* INTRO */
+.projects-intro {
+    background: #f5f5f5;
+    color: #222;
+    padding: 100px 0 60px;
+    text-align: center;
+}
+
+.projects-intro h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.projects-intro p {
+    color: #444;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* PROJECTS GRID (same pattern as about.html) */
+.projects {
+    background: #111;
+    padding: 80px 0 120px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.project {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 250px;
+}
+
+.project img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: 0.5s;
+}
+
+.project:hover img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    padding: 15px;
+    color: white;
+}
+
+/* FOOTER (page-specific override) */
+footer {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="container">
+        <span>Doha, Qatar</span>
+        <span>Power & Construction</span>
+    </div>
+</div>
+<header id="header">
+    <div class="container">
+        <div class="logo-box">
+            <img src="images/logo.png" alt="Pegasus Power Construction logo">
+            <h1 class="logo-text">PEGASUS</h1>
+        </div>
+
+        <button class="nav-toggle" onclick="this.classList.toggle('active'); document.querySelector('nav').classList.toggle('open')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="container">
+        <div class="hero-text-box">
+            <h1>Our Projects</h1>
+            <p>A look at the infrastructure work we've completed across Qatar.</p>
+        </div>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section class="projects-intro fade">
+    <div class="container">
+        <h2>A Track Record You Can See</h2>
+        <p>
+            <!-- PLACEHOLDER: replace with a couple sentences summarizing your project portfolio/experience -->
+            From substations to citywide distribution networks, here's a look at some of the work Pegasus Power Construction has delivered across Qatar.
+        </p>
+    </div>
+</section>
+
+<!-- PROJECTS GRID -->
+<section class="projects fade">
+    <div class="container">
+        <div class="project-grid">
+
+            <!-- PLACEHOLDER PROJECT 1 - replace image src, alt text, and title -->
+            <div class="project">
+                <img src="images/TransformerInstallation.jpeg" alt="Project photo placeholder">
+                <div class="project-overlay">
+                    <h3>Project Title</h3>
+                </div>
+            </div>
+
+            <!-- PLACEHOLDER PROJECT 2 -->
+            <div class="project">
+                <img src="images/CableJoints.jpeg" alt="Project photo placeholder">
+                <div class="project-overlay">
+                    <h3>Project Title</h3>
+                </div>
+            </div>
+
+            <!-- PLACEHOLDER PROJECT 3 -->
+            <div class="project">
+                <img src="images/Indoor11KVSwitchgear.jpeg" alt="Project photo placeholder">
+                <div class="project-overlay">
+                    <h3>Project Title</h3>
+                </div>
+            </div>
+
+            <!-- Duplicate this <div class="project">...</div> block for each additional project -->
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-container">
+        <div class="footer-box">
+            <h3>About</h3>
+            <p>Pegasus Power Construction is a KAHRAMAA A-Grade certified leader in Qatar specializing in MEP and electrical distribution networks. They provide expert infrastructure design, installation, and maintenance for major utility and industrial clients.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Phone: +974 6608 9450</p>
+            <p>Email: info@pegasuspower.qa</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Location</h3>
+            <p>Ain Khaled Bldg#32; 2st Floor; Office# 38, Doha, Qatar</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Pegasus Power Construction
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
