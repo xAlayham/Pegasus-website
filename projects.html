@@ -12,67 +12,6 @@
 
 <style>
 
-/* INTRO */
-.projects-intro {
-    background: #f5f5f5;
-    color: #222;
-    padding: 100px 0 60px;
-    text-align: center;
-}
-
-.projects-intro h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.projects-intro p {
-    color: #444;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* PROJECTS GRID (same pattern as about.html) */
-.projects {
-    background: #111;
-    padding: 80px 0 120px;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.project {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    height: 250px;
-}
-
-.project img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    transition: 0.5s;
-}
-
-.project:hover img {
-    transform: scale(1.1);
-}
-
-.project-overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.7);
-    padding: 15px;
-    color: white;
-}
-
 /* FOOTER (page-specific override) */
 footer {
     margin-top: 0;
@@ -81,6 +20,140 @@ footer {
 @media (max-width: 768px) {
     .project-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* STATS STRIP */
+.stats-strip {
+    background: #111;
+    padding: 60px 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-box .stat-number {
+    font-size: 40px;
+    font-weight: 700;
+    color: #e50914;
+    display: block;
+}
+
+.stat-box .stat-label {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 5px;
+    letter-spacing: 0.3px;
+}
+
+/* FULL LIST TOGGLE */
+.full-list-toggle-wrap {
+    text-align: center;
+    padding: 60px 0 100px;
+}
+
+.full-list-toggle {
+    display: inline-block;
+    padding: 14px 35px;
+    background: transparent;
+    border: 2px solid #e50914;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.full-list-toggle:hover {
+    background: #e50914;
+}
+
+/* FULL LIST SECTION */
+.full-list-section {
+    display: none;
+    padding: 50px 0 100px;
+}
+
+.full-list-section.open {
+    display: block;
+}
+
+.list-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.list-tab {
+    padding: 10px 25px;
+    background: #111;
+    border: 1px solid #333;
+    color: #ccc;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.list-tab.active {
+    background: #e50914;
+    color: white;
+    border-color: #e50914;
+}
+
+.list-table-wrap {
+    display: none;
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #222;
+}
+
+.list-table-wrap.active {
+    display: block;
+}
+
+table.project-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 700px;
+}
+
+table.project-table th {
+    background: #e50914;
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    white-space: nowrap;
+}
+
+table.project-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #222;
+    color: #ddd;
+}
+
+table.project-table tr:nth-child(even) {
+    background: #111;
+}
+
+table.project-table tr:hover {
+    background: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
 }
 </style>
@@ -130,49 +203,166 @@ footer {
     </div>
 </section>
 
-<!-- INTRO -->
-<section class="projects-intro fade">
-    <div class="container">
-        <h2>A Track Record You Can See</h2>
-        <p>
-            <!-- PLACEHOLDER: replace with a couple sentences summarizing your project portfolio/experience -->
-            From substations to citywide distribution networks, here's a look at some of the work Pegasus Power Construction has delivered across Qatar.
-        </p>
+<!-- STATS STRIP -->
+<section class="stats-strip fade">
+    <div class="container stats-grid">
+        <div class="stat-box">
+            <span class="stat-number"><span class="count" data-target="100">0</span>+</span>
+            <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number"><span class="count" data-target="19">0</span></span>
+            <span class="stat-label">Ongoing Projects</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number"><span class="count" data-target="80">0</span>+</span>
+            <span class="stat-label">Completed Projects</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number"><span class="count" data-target="2021">0</span></span>
+            <span class="stat-label">Serving Qatar Since</span>
+        </div>
     </div>
 </section>
 
-<!-- PROJECTS GRID -->
-<section class="projects fade">
+<!-- FULL LIST TOGGLE -->
+<div class="full-list-toggle-wrap fade">
+    <button class="full-list-toggle" onclick="document.querySelector('.full-list-section').classList.toggle('open')">
+        View Full Project List
+    </button>
+</div>
+
+<!-- FULL LIST -->
+<section class="full-list-section">
     <div class="container">
-        <div class="project-grid">
 
-            <!-- PLACEHOLDER PROJECT 1 - replace image src, alt text, and title -->
-            <div class="project">
-                <img src="images/TransformerInstallation.jpeg" alt="Project photo placeholder">
-                <div class="project-overlay">
-                    <h3>Project Title</h3>
-                </div>
-            </div>
-
-            <!-- PLACEHOLDER PROJECT 2 -->
-            <div class="project">
-                <img src="images/CableJoints.jpeg" alt="Project photo placeholder">
-                <div class="project-overlay">
-                    <h3>Project Title</h3>
-                </div>
-            </div>
-
-            <!-- PLACEHOLDER PROJECT 3 -->
-            <div class="project">
-                <img src="images/Indoor11KVSwitchgear.jpeg" alt="Project photo placeholder">
-                <div class="project-overlay">
-                    <h3>Project Title</h3>
-                </div>
-            </div>
-
-            <!-- Duplicate this <div class="project">...</div> block for each additional project -->
-
+        <div class="list-tabs">
+            <button class="list-tab active" onclick="showList('ongoing')">Ongoing</button>
+            <button class="list-tab" onclick="showList('completed')">Completed</button>
         </div>
+
+        <div class="list-table-wrap active" id="ongoing-table">
+            <table class="project-table">
+                <thead>
+                    <tr><th>Project Name</th><th>Work Description</th><th>Project Owner</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Reactive/Corrective Maintenance of 11KV Switchgear @QatarEnergy HQ-ABH District</td><td>11KV switchgear corrective maintenance</td><td>Qatar Energy</td></tr>
+                    <tr><td>Cable Fault Locating Works</td><td>11kV & LV cable fault identification</td><td>ROOTS</td></tr>
+                    <tr><td>Qetaifan Island</td><td>11kV (6 nos) substation equipment installation and T&C</td><td>Influx Services & Trading</td></tr>
+                    <tr><td>Yasmeen City – Al Wadi</td><td>11kV substation supply, installation & T&C</td><td>ARIANE</td></tr>
+                    <tr><td>Yasmeen City – Crescent</td><td>11kV substation supply, installation & T&C</td><td>Taameer Real Estate Projects</td></tr>
+                    <tr><td>Al Waab Project (11KV)</td><td>11kV substation (6 nos) supply, installation & T&C</td><td>ABK for Projects and Development</td></tr>
+                    <tr><td>Supply to RES002</td><td>11kV substation supply, installation & T&C</td><td>Al Wefaq Engineering & Contracting</td></tr>
+                    <tr><td>Labour Accommodation – Al Rakb</td><td>11kV package substation with cabling, supply & installation, T&C</td><td>CAPACITY Trading & Contracting</td></tr>
+                    <tr><td>Arab International Academy School</td><td>11kV substation installation & T&C</td><td>BOOM General Contractors WLL</td></tr>
+                    <tr><td>Food Store</td><td>11kV substation supply, installation & T&C</td><td>Gulf International Enterprises</td></tr>
+                    <tr><td>Glass Factory</td><td>11kV substation installation & T&C</td><td>Major Mulit M for Contracting</td></tr>
+                    <tr><td>Qetaifan Island</td><td>11kV substation supply, installation & T&C</td><td>Al Jaber Engineering</td></tr>
+                    <tr><td>Residential Apartment (3B+G+9) R02 – Al Erkyah</td><td>11kV substation supply, installation & T&C</td><td>Gulf Falcon Contracting Company</td></tr>
+                    <tr><td>Al Meera Thumama</td><td>11kV substation supply, installation & T&C</td><td>Arabian Technical Petroleum Services</td></tr>
+                    <tr><td>Supply to AP05 & AP20</td><td>LV cable termination incl. service connection (Pearl Qatar)</td><td>Al Seal Contracting & Trading Co WLL</td></tr>
+                    <tr><td>Al Wadi 2 / Yasmeen City</td><td>11kV substation supply, installation & T&C</td><td>Sigma Contracting & Trading WLL</td></tr>
+                    <tr><td>Cable Fault</td><td>11kV & LV cable fault identification</td><td>Al Jaryan Trading & Contracting</td></tr>
+                    <tr><td>Labour Accommodation</td><td>11kV package substation with cabling, supply & installation, T&C</td><td>Mirage (Artan)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="list-table-wrap" id="completed-table">
+            <table class="project-table">
+                <thead>
+                    <tr><th>Project Name</th><th>Work Description</th><th>Project Owner</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Seliya Tower West Bay</td><td>11kV substation supply, installation & T&C</td><td>QMMC – The Qatari Modern Maintenance Co WLL</td></tr>
+                    <tr><td>ERKIA R39</td><td>11kV substation supply, installation & T&C</td><td>Ariane Real Estate</td></tr>
+                    <tr><td>ERKIA 52</td><td>11kV substation supply, installation & T&C</td><td>Arian RE</td></tr>
+                    <tr><td>Lusail</td><td>11kV substation supply, installation & T&C</td><td>CGC</td></tr>
+                    <tr><td>4-402-2012 (P)</td><td>11kV substation supply, installation & T&C</td><td>ARKAZ</td></tr>
+                    <tr><td>4-402-2012 (W)</td><td>11kV substation supply, installation & T&C</td><td>ARKAZ</td></tr>
+                    <tr><td>34-24-2017</td><td>11kV substation supply, installation & T&C</td><td>Al Israa</td></tr>
+                    <tr><td>Lusail Stadium Landscaping</td><td>LV cable installation, termination</td><td>REDCO</td></tr>
+                    <tr><td>Lusail Stadium Landscaping</td><td>LV cable installation, termination</td><td>REDCO</td></tr>
+                    <tr><td>Erkiya – FO Repair</td><td>Fiber optic cable fault identification and repair</td><td>Ariane</td></tr>
+                    <tr><td>Street Lighting</td><td>Street light pole installation incl. termination & commissioning</td><td>ROOTS</td></tr>
+                    <tr><td>Water Works</td><td>LV cable installation, termination</td><td>Landworks</td></tr>
+                    <tr><td>Erkia R05</td><td>11kV substation supply, installation & T&C</td><td>Al Arkiya Realestate</td></tr>
+                    <tr><td>Erkiya R15</td><td>11kV substation supply, installation & T&C</td><td>Al Arkiya Realestate</td></tr>
+                    <tr><td>Cable Supply</td><td>11kV substation supply, installation & T&C</td><td>Elite</td></tr>
+                    <tr><td>Erkiya R34</td><td>11kV substation supply, installation & T&C</td><td>Badr</td></tr>
+                    <tr><td>Vendome Mall</td><td>11kV substation supply, installation & T&C</td><td>Voltas</td></tr>
+                    <tr><td>GRC Factory Im Msaieed</td><td>11kV substation supply, installation & T&C</td><td>Al Khayareen</td></tr>
+                    <tr><td>RIW in Northern Area</td><td>11kV substation supply, installation & T&C</td><td>Al Muhannadi</td></tr>
+                    <tr><td>Supply to MU08 – Fox Hills (Gulf Falcon)</td><td>11kV substation supply, installation & T&C</td><td>Gulf Falcon Contracting Company</td></tr>
+                    <tr><td>House Connection – Alkhour</td><td>LV cable installation, termination incl. service connection</td><td>Ashgal</td></tr>
+                    <tr><td>Street Lighting</td><td>Street light pole installation incl. termination & commissioning</td><td>Ariane</td></tr>
+                    <tr><td>Oryx Building</td><td>11kV substation supply, installation & T&C</td><td>Qatar Airways</td></tr>
+                    <tr><td>Cement Factory</td><td>11kV substation supply, installation & T&C</td><td>Global Energy</td></tr>
+                    <tr><td>QNCC Panel Modification</td><td>LV panel modification</td><td>QNCC</td></tr>
+                    <tr><td>Sand Wash Factory</td><td>11kV substation supply, installation & T&C</td><td>QNCC</td></tr>
+                    <tr><td>HV Panels Protection Works</td><td>11kV panel relay protection testing</td><td>—</td></tr>
+                    <tr><td>HV Panels Protection Works</td><td>11kV panel relay protection testing</td><td>MZK</td></tr>
+                    <tr><td>Joint and Termination</td><td>Cable joint and termination</td><td>—</td></tr>
+                    <tr><td>Erkiya Water Test</td><td>Water leakage testing</td><td>Ariane</td></tr>
+                    <tr><td>Erkiya R10</td><td>11kV substation supply, installation & T&C</td><td>Marakez Facility Management</td></tr>
+                    <tr><td>Erkiya R5 Single Cable Lay</td><td>Cable laying at Lusail</td><td>—</td></tr>
+                    <tr><td>Marina COM33 – Sigma</td><td>11kV substation supply, installation & T&C</td><td>Sigma</td></tr>
+                    <tr><td>Wasco</td><td>11kV substation supply, installation & T&C</td><td>High Frequency</td></tr>
+                    <tr><td>Supply to D13 Building</td><td>11kV substation supply, installation & T&C</td><td>Al Wefaq Engineering & Contracting</td></tr>
+                    <tr><td>Supply to Qatar Resin Factory</td><td>11kV substation supply, installation & T&C</td><td>Qatar Industrial Resins</td></tr>
+                    <tr><td>Cable Fault & Joint HV</td><td>Cable fault & joint HV</td><td>Continental Trading Co. WLL</td></tr>
+                    <tr><td>LV Work (Cable Tray & Termination)</td><td>LV work – cable tray & termination</td><td>Voltech Engineering WLL</td></tr>
+                    <tr><td>Al Bareq Commercial Building</td><td>11kV substation supply, installation & T&C</td><td>Total Design Trading WLL</td></tr>
+                    <tr><td>LV Work – Village Residential Building (2B+G+6)</td><td>Kahramaa LV inspection</td><td>QMMC – The Qatari Modern Maintenance Co WLL</td></tr>
+                    <tr><td>Water Connection Al Wakra / Al Bouz</td><td>Kahramaa water meter inspection</td><td>Al Ghanim Trading & Cont Co WLL</td></tr>
+                    <tr><td>LV Cable Connection</td><td>Kahramaa LV inspection</td><td>KTC – Key Technical International</td></tr>
+                    <tr><td>Upgrade of KM Water Services</td><td>Kahramaa water meter inspection</td><td>Al Ghanim Trading & Cont Co WLL</td></tr>
+                    <tr><td>Installation of Emergency TFSs</td><td>—</td><td>Influx Services & Trading</td></tr>
+                    <tr><td>HV Installation</td><td>11kV panel installation</td><td>Borhanco Trading & Contracting</td></tr>
+                    <tr><td>Transformer Maintenance</td><td>Transformer maintenance including testing</td><td>Fast Integrated Services</td></tr>
+                    <tr><td>Transformer Test</td><td>Transformer test</td><td>Boom</td></tr>
+                    <tr><td>Panel Modification and Cables Works</td><td>LV panel modification</td><td>AZMEP</td></tr>
+                    <tr><td>Roya Garage Meter Shifting</td><td>Kahramaa electric meter shifting</td><td>—</td></tr>
+                    <tr><td>Street Lighting Works</td><td>Street light pole installation incl. termination & commissioning</td><td>Mubadara</td></tr>
+                    <tr><td>Adding Busbar</td><td>LV panel modification</td><td>Azemp</td></tr>
+                    <tr><td>Brikstone Site</td><td>—</td><td>QTEC</td></tr>
+                    <tr><td>Revalidation of KM Approval – R39</td><td>—</td><td>Ariane</td></tr>
+                    <tr><td>Feeder Pillar Maintenance</td><td>—</td><td>Sinohydro CP1 Project</td></tr>
+                    <tr><td>Supply to Veterinary & Laboratory (Vet Lab)</td><td>—</td><td>Elite Prime</td></tr>
+                    <tr><td>Pneumatic Waste Collection</td><td>—</td><td>Al Aali International</td></tr>
+                    <tr><td>Al Rakab Logistic Park (HBK)</td><td>—</td><td>Qatari German Switchgear Co</td></tr>
+                    <tr><td>Al Moez Logistics</td><td>—</td><td>Qatari German Switchgear Co</td></tr>
+                    <tr><td>Plot 2 in Jerry Al Samur (Gulf Falcon)</td><td>—</td><td>Qatari German Switchgear Co</td></tr>
+                    <tr><td>Oasis Hotel Variation</td><td>—</td><td>Darwish</td></tr>
+                    <tr><td>Labour Camp in Birkat Al Awamer</td><td>—</td><td>Borhanco</td></tr>
+                    <tr><td>Stores in Birkat Al Awamer</td><td>—</td><td>Al Jazira Building & Construction</td></tr>
+                    <tr><td>Replacing a Panel in the Airport (Linc FM)</td><td>—</td><td>Qatari German Switchgear Co</td></tr>
+                    <tr><td>Katara Luxury Hotel (Cable Fault Locating)</td><td>—</td><td>Proman Project Management</td></tr>
+                    <tr><td>Fox Hills RES14</td><td>—</td><td>Al Wefaq Engineering & Contracting</td></tr>
+                    <tr><td>Fox Hills RES15</td><td>—</td><td>Al Wefaq Engineering & Contracting</td></tr>
+                    <tr><td>Lusail SS 18865</td><td>—</td><td>ACE Elec</td></tr>
+                    <tr><td>Labour Camp in Muaizer</td><td>—</td><td>Al Hayal</td></tr>
+                    <tr><td>Erkiya R53</td><td>—</td><td>PAH Group</td></tr>
+                    <tr><td>Feeder Pillar</td><td>—</td><td>Al Muhannadi</td></tr>
+                    <tr><td>Electricity Meter Transfer</td><td>—</td><td>Le Merage City Walk</td></tr>
+                    <tr><td>Insulation of Busbar (Airport)</td><td>—</td><td>Linc Facility Services</td></tr>
+                    <tr><td>Jaidah Works</td><td>—</td><td>Jaidah Group</td></tr>
+                    <tr><td>Maintenance for 1000KVA Dry TX in SS 28216</td><td>—</td><td>Fimco Int'l. Trad. & Cont. Co (WLL)</td></tr>
+                    <tr><td>Cable Megger</td><td>—</td><td>ROOTS</td></tr>
+                    <tr><td>Meter Relocation</td><td>—</td><td>Saieed Al Kaabi</td></tr>
+                    <tr><td>HV Services</td><td>—</td><td>Ertibat</td></tr>
+                    <tr><td>LV Services</td><td>—</td><td>Farid Al Abdullah</td></tr>
+                    <tr><td>LV Connection</td><td>—</td><td>Burhanco</td></tr>
+                    <tr><td>KM Handing Over</td><td>—</td><td>Al Manaa</td></tr>
+                    <tr><td>TX Supply</td><td>—</td><td>ABK</td></tr>
+                    <tr><td>LV Connection</td><td>—</td><td>Al Ganem</td></tr>
+                    <tr><td>Street Lights Installation</td><td>—</td><td>Al Darwish</td></tr>
+                    <tr><td>Jointing Works</td><td>—</td><td>QNCC</td></tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </section>
 
@@ -202,6 +392,56 @@ footer {
 </footer>
 
 <script src="script.js"></script>
+
+<script>
+function showList(type) {
+    document.querySelectorAll('.list-tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.list-table-wrap').forEach(table => table.classList.remove('active'));
+
+    if (type === 'ongoing') {
+        document.querySelectorAll('.list-tab')[0].classList.add('active');
+        document.getElementById('ongoing-table').classList.add('active');
+    } else {
+        document.querySelectorAll('.list-tab')[1].classList.add('active');
+        document.getElementById('completed-table').classList.add('active');
+    }
+}
+</script>
+
+<script>
+function animateCounters() {
+    document.querySelectorAll('.stat-number .count').forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'), 10);
+        const duration = 1500;
+        const startTime = performance.now();
+
+        function update(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            counter.textContent = Math.floor(progress * target);
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                counter.textContent = target;
+            }
+        }
+
+        requestAnimationFrame(update);
+    });
+}
+
+let countersStarted = false;
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !countersStarted) {
+            countersStarted = true;
+            animateCounters();
+            statsObserver.disconnect();
+        }
+    });
+}, { threshold: 0.4 });
+
+statsObserver.observe(document.querySelector('.stats-strip'));
+</script>
 
 </body>
 </html>
