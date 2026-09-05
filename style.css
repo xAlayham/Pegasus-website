@@ -52,7 +52,7 @@ body {
 /* HERO */
 .page-hero {
     height: 40vh;
-    background: url('images/Sections3.png') center/cover no-repeat;
+    background: url('images/Sections3.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     position: relative;
